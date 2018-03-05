@@ -670,11 +670,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\BALAKH\\Desktop\\Project\\Project.csproj",
+      "projectUniqueName": "C:\\Users\\BALAKH\\Desktop\\BookingApp\\Project.csproj",
       "projectName": "Project",
-      "projectPath": "C:\\Users\\BALAKH\\Desktop\\Project\\Project.csproj",
+      "projectPath": "C:\\Users\\BALAKH\\Desktop\\BookingApp\\Project.csproj",
       "packagesPath": "C:\\Users\\BALAKH\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\BALAKH\\Desktop\\Project\\obj\\",
+      "outputPath": "C:\\Users\\BALAKH\\Desktop\\BookingApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

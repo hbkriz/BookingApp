@@ -8,3 +8,13 @@ C:\Users\BALAKH\Desktop\Project\obj\Debug\netcoreapp2.0\Project.AssemblyInfoInpu
 C:\Users\BALAKH\Desktop\Project\obj\Debug\netcoreapp2.0\Project.AssemblyInfo.cs
 C:\Users\BALAKH\Desktop\Project\obj\Debug\netcoreapp2.0\Project.dll
 C:\Users\BALAKH\Desktop\Project\obj\Debug\netcoreapp2.0\Project.pdb
+C:\Users\BALAKH\Desktop\BookingApp\bin\Debug\netcoreapp2.0\Project.deps.json
+C:\Users\BALAKH\Desktop\BookingApp\bin\Debug\netcoreapp2.0\Project.runtimeconfig.json
+C:\Users\BALAKH\Desktop\BookingApp\bin\Debug\netcoreapp2.0\Project.runtimeconfig.dev.json
+C:\Users\BALAKH\Desktop\BookingApp\bin\Debug\netcoreapp2.0\Project.dll
+C:\Users\BALAKH\Desktop\BookingApp\bin\Debug\netcoreapp2.0\Project.pdb
+C:\Users\BALAKH\Desktop\BookingApp\obj\Debug\netcoreapp2.0\Project.csproj.CoreCompileInputs.cache
+C:\Users\BALAKH\Desktop\BookingApp\obj\Debug\netcoreapp2.0\Project.AssemblyInfoInputs.cache
+C:\Users\BALAKH\Desktop\BookingApp\obj\Debug\netcoreapp2.0\Project.AssemblyInfo.cs
+C:\Users\BALAKH\Desktop\BookingApp\obj\Debug\netcoreapp2.0\Project.dll
+C:\Users\BALAKH\Desktop\BookingApp\obj\Debug\netcoreapp2.0\Project.pdb
