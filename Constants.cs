@@ -6,5 +6,6 @@ namespace Project
        public const decimal TrainAndTubeFare  = 1M;
        public const bool FalseCondition = false;
        public const bool TrueCondition = true;
+       public const int StationNumber =0;
     }
 }

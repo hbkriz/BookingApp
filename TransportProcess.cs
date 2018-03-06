@@ -8,47 +8,20 @@ namespace Project
     {
         public string _station;
         public int _order;
-        public TransportProcess() {
+        public bool _condition;
+        public string _onwardJourney;
+        public void Initialise(string onwardJourney) {
             _station = string.Empty;
-            _order = 0;
+            _onwardJourney = onwardJourney;
+            _order = Constants.StationNumber;
+            _condition=Constants.FalseCondition;
         }
 
-
-        public Tuple<int, string> RouteInformation(string onwardJourney)
-        {
-            var condition = Constants.FalseCondition;
-            Console.WriteLine();
-            while(condition == Constants.FalseCondition){
-                var selection = Console.ReadLine();
-                var currentMatches = AllStations.Where(i => i.Value.Contains(selection));
-                if(currentMatches.Count() > 1){
-                    Console.WriteLine();
-                    Console.WriteLine("Please select one of the following {0}s:", onwardJourney);
-                     foreach(var eachMatch in currentMatches)
-                     {
-                        Console.WriteLine(eachMatch.Value);
-                     }
-                }
-                else{
-                    Console.WriteLine();
-                    var currentObject = currentMatches.First();
-                    if(currentMatches.Count() == 1){
-                        _station = currentMatches.First().Value;
-                        _order = currentMatches.First().Key;
-                        Console.Write(_station);
-                        Console.Write(" is your chosen "+ onwardJourney);
-                        Console.WriteLine();
-                        condition = Constants.TrueCondition;
-                    }
-                    else{
-                        Console.WriteLine("Please enter a valid {0}.", onwardJourney);
-                    }
-                }
-            }
-            return new Tuple<int, string>(_order,_station);
+        public Mode InitialSelection() {
+            Console.WriteLine("Please Enter your selection: 1) Train/Tube 2) Bus");
+            var selection = Convert.ToInt32(Console.ReadLine());
+            return (Mode)selection;
         }
-
-
 
         public void DisplayStations(string condition = null) {
             Console.WriteLine();
@@ -58,20 +31,15 @@ namespace Project
             }
         }
 
-         public Dictionary<int, string> AllStations = new Dictionary<int, string>()
+        public Tuple<int, string> RouteInformation()
         {
-            { 1, "Picadilly"},
-            { 2, "Victoria"},
-            { 3, "London Bridge"},
-            { 4, "Greenwich"},
-            { 5, "Paddington"}
-        };
-
-
-        public Mode InitialSelection() {
-            Console.WriteLine("Please Enter your selection: 1) Train/Tube 2) Bus");
-            var selection = Convert.ToInt32(Console.ReadLine());
-            return (Mode)selection;
+            while(_condition == Constants.FalseCondition){
+                Console.WriteLine();
+                var selection = Console.ReadLine();
+                var currentMatches = AllStations.Where(i => i.Value.Contains(selection));
+                LogicToDisplay(currentMatches);
+            }
+            return new Tuple<int, string>(_order,_station);
         }
 
         public void TicketPrice(Mode travelType, int originOrder, int destinationOrder)
@@ -98,6 +66,35 @@ namespace Project
             Console.WriteLine("Your booking has been processed");
             Console.WriteLine("Your ticket: {0} --> {1}", origin, destination);
         }
+
+        private void LogicToDisplay(IEnumerable<KeyValuePair<int, string>> currentMatches)
+        {
+            if(currentMatches.Count() > 1) {
+                Console.WriteLine("Please select one of the following {0}s:", _onwardJourney);
+                    foreach(var eachMatch in currentMatches)
+                    {
+                    Console.WriteLine(eachMatch.Value);
+                    }
+            }
+            else if(currentMatches.Count() == 1) {
+                    _station = currentMatches.First().Value;
+                    _order = currentMatches.First().Key;
+                    Console.WriteLine("{0} is your chosen {1}", _station, _onwardJourney);
+                    _condition = Constants.TrueCondition;
+            }
+            else {
+                    Console.WriteLine("Please enter a valid {0}.", _onwardJourney);
+            }
+        } 
+
+        private Dictionary<int, string> AllStations = new Dictionary<int, string>()
+        {
+            { 1, "Picadilly"},
+            { 2, "Victoria"},
+            { 3, "London Bridge"},
+            { 4, "Greenwich"},
+            { 5, "Paddington"}
+        };
 
     }
     
