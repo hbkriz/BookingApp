@@ -6,18 +6,24 @@ namespace Project
 {
     public class TransportProcess
     {
+        public string _station;
+        public int _order;
+        public TransportProcess() {
+            _station = string.Empty;
+            _order = 0;
+        }
+
+
         public Tuple<int, string> RouteInformation(string onwardJourney)
         {
-            var station = string.Empty;
-            var order =0;
-            var condition =false;
+            var condition = Constants.FalseCondition;
             Console.WriteLine();
-            while(condition == false){
+            while(condition == Constants.FalseCondition){
                 var selection = Console.ReadLine();
                 var currentMatches = AllStations.Where(i => i.Value.Contains(selection));
                 if(currentMatches.Count() > 1){
                     Console.WriteLine();
-                    Console.WriteLine("Please select one of the following {0}:", onwardJourney);
+                    Console.WriteLine("Please select one of the following {0}s:", onwardJourney);
                      foreach(var eachMatch in currentMatches)
                      {
                         Console.WriteLine(eachMatch.Value);
@@ -27,20 +33,22 @@ namespace Project
                     Console.WriteLine();
                     var currentObject = currentMatches.First();
                     if(currentMatches.Count() == 1){
-                        station = currentMatches.First().Value;
-                        order = currentMatches.First().Key;
-                        Console.Write(station);
+                        _station = currentMatches.First().Value;
+                        _order = currentMatches.First().Key;
+                        Console.Write(_station);
                         Console.Write(" is your chosen "+ onwardJourney);
                         Console.WriteLine();
-                        condition = true;
+                        condition = Constants.TrueCondition;
                     }
                     else{
                         Console.WriteLine("Please enter a valid {0}.", onwardJourney);
                     }
                 }
             }
-            return new Tuple<int, string>(order,station);
+            return new Tuple<int, string>(_order,_station);
         }
+
+
 
         public void DisplayStations(string condition = null) {
             Console.WriteLine();
